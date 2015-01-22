@@ -1,0 +1,21 @@
+{
+		"name": "alcr33k/ccloak",
+		"type": "library",
+		"description": "CCloak is a simple wrapper-class for link cloaking",
+		"keywords": ["link", "cloaking", "feed", "anax", "module", "mvc"],
+		"homepage": "http://dbwebb.se",
+		"license": "MIT",
+		"authors": [
+			{
+			"name": "Alexander Björkenhall",
+			"email": "alex.alle@hotmail.com",
+			"role": "Developer"
+			}
+		],
+		"require": {
+			"php": ">=5.4"
+		},
+		"autoload": {
+			"psr-4": { "alcr33k\\": "src/" }
+		}
+}
