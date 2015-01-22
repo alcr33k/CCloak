@@ -34,7 +34,7 @@ $di->set('dbmodel', '\Anax\MVC\CDatabaseModel');
 $di->set('form', '\Mos\HTMLForm\CForm');
 // redirect 
 if(isset($_GET["url"])) {
-		$cloak = new \Anax\Cloak\CCloak();
+		$cloak = new \Alcr33k\Cloak\CCloak();
 		$cloak->initialize($app->form, $app->pdo);
 		$url = htmlspecialchars($_GET["url"]);
 		$results = $cloak->goToUrl($url);
