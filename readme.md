@@ -11,13 +11,12 @@ How to use
 The easiest way is to install using composer. Add to your composer.json:
 ```javascript
 "require": {
-	"alcr33k/ccloak": "dev-master"
+	"alcr33k/ccloak": "dev-master",
+	"mos/cform": "2.*@dev",
+	"mos/cdatabase": "dev-master"
 }
 ```
 Then run composer update.
-
-
-Don't wanna use Composer? Download .zip from this page!
 
 2. MySql
 ---------------------
@@ -35,6 +34,8 @@ Have you a file called "database_mysql.php" with your mysql credentials in you A
 
 The first thing you need to do when you have installed the package is to move the file "redirect.php" located in the folder "move-to-webroot" to your actual webroot folder. 
 
+Move the cloak folder to app/src and you are now good to go!
+
 Now visit webroot/redirect.php and start creating some redirects. The package will automatically setup the databses needed. 
 
 
@@ -45,5 +46,7 @@ The url to visit one of the redirects you created in redirects.php is as follows
 
 **redirect.php?url=linkName** (change linkname to whatever you named the redirect)
 
+
+Enjoy!
 .
 ..:  Copyright (c) 2014 - 2015 Alexander Björkenhall, alex.alle@hotmail.com
