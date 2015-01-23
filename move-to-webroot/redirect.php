@@ -5,21 +5,21 @@
  */
 // Get environment & autoloader.
 require __DIR__.'/config_with_app.php';
-$app->theme->configure(ANAX_APP_PATH . './config/theme_me.php');
-$app->navbar->configure(ANAX_APP_PATH . './config/navbar_me.php');
+$app->theme->configure(ANAX_APP_PATH . 'config/theme.php');
+$app->navbar->configure(ANAX_APP_PATH . 'config/navbar.php');
 $app->session();
-
+$app->theme->setVariable('title', "Skapa redirect");
 // setup db
 $di->setShared('db', function() {
     $db = new \Mos\Database\CDatabaseBasic();
-    $db->setOptions(require ANAX_APP_PATH . './config/database_mysql.php');
+    $db->setOptions(require ANAX_APP_PATH . 'config/database_mysql.php');
     $db->connect();
     return $db;
 });
 // setup pdo
 $di->setShared('pdo', function() {
 		try {
-			$mysql = require ANAX_APP_PATH . './config/database_mysql.php'; // get connection details array
+			$mysql = require ANAX_APP_PATH . 'config/database_mysql.php'; // get connection details array
 			$pdo = new PDO($mysql['dsn'], $mysql['username'], $mysql['password'], $mysql['driver_options']);
 			return $pdo;
 		}
@@ -34,13 +34,14 @@ $di->set('dbmodel', '\Anax\MVC\CDatabaseModel');
 $di->set('form', '\Mos\HTMLForm\CForm');
 // redirect 
 if(isset($_GET["url"])) {
-		$cloak = new \Alcr33k\Cloak\CCloak();
+		$cloak = new \Anax\Cloak\CCloak();
 		$cloak->initialize($app->form, $app->pdo);
 		$url = htmlspecialchars($_GET["url"]);
 		$results = $cloak->goToUrl($url);
 }
 // add routes
 $app->router->add('', function() use ($app) {
+	$title = 'Skapa redirect';
 	// Create the CCloak service
 	$cloak = new \Anax\Cloak\CCloak();
 	$cloak->initialize($app->form, $app->pdo);
@@ -55,11 +56,9 @@ $app->router->add('', function() use ($app) {
 		$content = $linkContent['form'];
 		$content .=  $linkContent['text'];
 		$content .= '<a href="redirect.php/setup">Setup plugin</a>';
-		$byline = $app->fileContent->get('byline.md');
-		$byline = $app->textFilter->doFilter($byline, 'shortcode, markdown');
-		$app->views->add('me/page', [
+		$app->views->add('default/page', [
 			'content' => $content,
-			'byline' => $byline,
+			'title' => $title,
 		]);
 	}
 });
