@@ -1,6 +1,6 @@
 <?php
 namespace Anax\Cloak;
-class CFlashMessageTest extends \PHPUnit_Framework_TestCase
+class CCloakTest extends \PHPUnit_Framework_TestCase
 {
 	/**
    * Constructor
@@ -18,7 +18,7 @@ class CFlashMessageTest extends \PHPUnit_Framework_TestCase
  *
  */
 	public function testClass() {
-		$res = get_class($$this->cloak);
+		$res = get_class($this->cloak);
 		$exp = "Anax\Cloak\CCloak";
 		$this->assertEquals($res, $exp, "Wrong class");
 	}
@@ -51,7 +51,7 @@ class CFlashMessageTest extends \PHPUnit_Framework_TestCase
  */	
 	public function testIsSetup() {
 		// Test for correct aoutput (true/false)
-		$this->cloak->isSetup();
+		$res = $this->cloak->isSetup();
 		$this->assertContainsOnly('boolean', $res, "Result of function isSetup is not in a valid type");
 	}
 }
