@@ -7,8 +7,7 @@ namespace Anax\Cloak;
  * @copyright Alexander Björkenhall 2015
  * @link https://github.com/alcr33k/****
  */
- class CCloak implements \Anax\DI\IInjectionAware {
-	use \Anax\DI\TInjectable;
+ class CCloak {
 	/**
    * Constructor
    *
