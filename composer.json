@@ -7,15 +7,14 @@
 		"license": "MIT",
 		"authors": [
 			{
-			"name": "Alexander Björkenhall",
+			"name": "Alexander BjÃ¶rkenhall",
 			"email": "alex.alle@hotmail.com",
 			"role": "Developer"
 			}
 		],
 		"require": {
 			"php": ">=5.4",
-			"mos/cform": "2.*@dev",
-			"mos/cdatabase": "dev-master"
+			"mos/cform": "2.*@dev"
 		},
 		"autoload": {
 			"psr-4": { "alcr33k\\": "src/" }
