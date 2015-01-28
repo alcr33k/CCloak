@@ -1,4 +1,6 @@
 [![Build Status](https://travis-ci.org/alcr33k/CCloak.svg?branch=master)](https://travis-ci.org/alcr33k/CCloak)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/alcr33k/CCloak/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/alcr33k/CCloak/?branch=master)
+[![Code Coverage](https://scrutinizer-ci.com/g/alcr33k/CCloak/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/alcr33k/CCloak/?branch=master)
 CCloak
 ===========
 CCloak is a simple wrapper-class for link cloaking within the Anax framework (https://github.com/mosbth/Anax-MVC.git)
