@@ -8,8 +8,7 @@ class CFlashMessageTest extends \PHPUnit_Framework_TestCase
   */
 	public function __construct() { 
 		$form = new \Mos\HTMLForm\CForm();
-		$mysql = require ANAX_APP_PATH . 'config/database_mysql.php'; 
-		$pdo = new \PDO($mysql['dsn'], $mysql['username'], $mysql['password'], $mysql['driver_options']);
+		$pdo = new \PDO('mysql:host=db4free.net;dbname=ccloak;', 'userforccloak', 'test123456');
 		$this->cloak = new \Anax\Cloak\CCloak($form, $pdo);
 	}
 /**
