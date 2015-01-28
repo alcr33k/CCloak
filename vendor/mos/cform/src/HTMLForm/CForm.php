@@ -422,7 +422,7 @@ EOD;
         }
 
         $request = null;
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        if ((isset($_SERVER['REQUEST_METHOD'])) && ($_SERVER['REQUEST_METHOD'] == 'POST')){
             $request = $_POST;
             if (isset($_SESSION['form-failed']))
                 unset($_SESSION['form-failed']);
