@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/alcr33k/CCloak.svg?branch=master)](https://travis-ci.org/alcr33k/CCloak)
 CCloak
 ===========
 CCloak is a simple wrapper-class for link cloaking within the Anax framework (https://github.com/mosbth/Anax-MVC.git)
