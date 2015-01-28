@@ -9,13 +9,6 @@ $app->theme->configure(ANAX_APP_PATH . 'config/theme.php');
 $app->navbar->configure(ANAX_APP_PATH . 'config/navbar.php');
 $app->session();
 $app->theme->setVariable('title', "Skapa redirect");
-// setup db
-$di->setShared('db', function() {
-    $db = new \Mos\Database\CDatabaseBasic();
-    $db->setOptions(require ANAX_APP_PATH . 'config/database_mysql.php');
-    $db->connect();
-    return $db;
-});
 // setup pdo
 $di->setShared('pdo', function() {
 		try {
@@ -28,14 +21,11 @@ $di->setShared('pdo', function() {
 		}
 });
 
-// setup db-model
-$di->set('dbmodel', '\Anax\MVC\CDatabaseModel');
 // setup form 
 $di->set('form', '\Mos\HTMLForm\CForm');
 // redirect 
 if(isset($_GET["url"])) {
-		$cloak = new \Anax\Cloak\CCloak();
-		$cloak->initialize($app->form, $app->pdo);
+		$cloak = new \Anax\Cloak\CCloak($app->form, $app->pdo);
 		$url = htmlspecialchars($_GET["url"]);
 		$results = $cloak->goToUrl($url);
 }
@@ -43,8 +33,7 @@ if(isset($_GET["url"])) {
 $app->router->add('', function() use ($app) {
 	$title = 'Skapa redirect';
 	// Create the CCloak service
-	$cloak = new \Anax\Cloak\CCloak();
-	$cloak->initialize($app->form, $app->pdo);
+	$cloak = new \Anax\Cloak\CCloak($app->form, $app->pdo);
 	// Setup if not already done
 	$status = $cloak->isSetup();
 	if ($status = false) {
@@ -64,7 +53,7 @@ $app->router->add('', function() use ($app) {
 });
 
 $app->router->add('setup', function() use ($app) {
-	$cloak = new \Anax\Cloak\CCloak($app->db, $app->form, $app->dbmodel);
+	$cloak = new \Anax\Cloak\CCloak($app->form, $app->pdo);
 	$cloak-setup();
 });
 $app->router->handle();

@@ -11,9 +11,8 @@ namespace Anax\Cloak;
 	/**
    * Constructor
    *
-   * @param $db is the databse-class set in index.php.
    */
-	public function initialize($form, $pdo) { 
+	public function __construct($form, $pdo) { 
 		$this->form = $form;
 		$this->pdo = $pdo;
 	}
