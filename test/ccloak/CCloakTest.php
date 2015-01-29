@@ -29,7 +29,7 @@ class CCloakTest extends \PHPUnit_Framework_TestCase
  *
  */	
 	public function testAddCloakedLink() {
-		$this->cloak->addCloakedLink();
+		$res = $this->cloak->addCloakedLink();
 		// Test that the form is not emty
 		$this->assertNotEmpty($res['form'], "Result of function addCloakedLink is empty");
 		// Test that the returned html contains a form tag
