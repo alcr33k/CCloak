@@ -33,15 +33,7 @@ class CCloakTest extends \PHPUnit_Framework_TestCase
 		// Test that the form is not emty
 		$this->assertNotEmpty($res['form'], "Result of function addCloakedLink is empty");
 		// Test that the returned html contains a form tag
-		$this->assertContains('<form>', $res['form'], "Result of function addCloakedLink does not contain a form tag");
-	}
-/**
- * Test to find a url (add link and try to visit it)
- *
- * @return void
- *
- *	
-	public function testGoToUrl() {
+		$this->assertContains('<form', $res['form'], "Result of function addCloakedLink does not contain a form tag");
 	}
 /**
  * Test the isSetup function
