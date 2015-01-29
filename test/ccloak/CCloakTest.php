@@ -52,6 +52,6 @@ class CCloakTest extends \PHPUnit_Framework_TestCase
 	public function testIsSetup() {
 		// Test for correct aoutput (true/false)
 		$res = $this->cloak->isSetup();
-		$this->assertContainsOnly('boolean', $res, "Result of function isSetup is not in a valid type");
+		$this->assertContainsOnly('boolean', array($res), "Result of function isSetup is not in a valid type");
 	}
 }
